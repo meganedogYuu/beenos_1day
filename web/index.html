@@ -7,12 +7,17 @@
 </head>
 
 <body>
+<input type="text" name="text" size="30" maxlength="20" class="search_text js-searchText">
+<input type="button" value="検索" class="search_submit js-searchSubmit">
+
+<p class="searchWord"></p>
 
 <ul class="images">
 </ul>
 
 </body>
 <script>
+  /*
   $.ajax({
     type: 'GET',
     url: 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=f913b553246aad175192dbccb8da54f2&text=cat&format=json&nojsoncallback=1&auth_token=72157661973556790-24dd355c9fb38c21&api_sig=ab81a768e7d010aa70a879f1a679f6e7',
@@ -49,6 +54,43 @@
       console.log("何らかの理由で失敗しました");
     }
   });
+*/
+
+
+  /**
+   * 検索ボタンを押した時に呼ばれるメソッド
+   */
+  $(function() {
+    $(".js-searchSubmit").click(function(){
+
+      // 検索ワードを取得
+      var searchWord = $(".js-searchText").val();
+
+      var url = createFlickrUrl(searchWord);
+
+      $("p.searchWord").append("<a href=" + url + " target='_blank'>リンク</a>");
+
+      console.log(url);
+
+      return false;
+    });
+  });
+
+  /**
+   * flickrに問い合わせるURLを作成する
+   */
+  function createFlickrUrl(searchWord) {
+
+    var apiKey = "f913b553246aad175192dbccb8da54f2";
+
+    var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="
+            + apiKey
+            + "&text=" + searchWord
+            + "&format=json&nojsoncallback=1&auth_token=72157661973556790-24dd355c9fb38c21&api_sig=ab81a768e7d010aa70a879f1a679f6e7";
+
+    return url;
+  }
+
 
 </script>
 </html>
