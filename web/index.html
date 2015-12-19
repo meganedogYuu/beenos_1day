@@ -7,48 +7,83 @@
 </head>
 
 <body>
+<input type="text" name="text" size="30" maxlength="20" class="search_text js-searchText">
+<input type="button" value="検索" class="search_submit js-searchSubmit">
+
+<p class="searchWord"></p>
 
 <ul class="images">
 </ul>
 
 </body>
 <script>
-  $.ajax({
-    type: 'GET',
-    url: 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=f913b553246aad175192dbccb8da54f2&text=cat&format=json&nojsoncallback=1&auth_token=72157661973556790-24dd355c9fb38c21&api_sig=ab81a768e7d010aa70a879f1a679f6e7',
-    dataType: 'json',
-    success: function (data) {
+
+
+  function searchFlickrImg(searchWord) {
+
+    var apiKey = "e54217aa4aa3f448b98aa08d943cc773";
+
+    var searchUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="
+            + apiKey
+            + "&text=" + searchWord
+            + "&format=json&nojsoncallback=1";
+
+    console.log(searchUrl);
+
+    $.ajax({
+      type: 'GET',
+      url: searchUrl,
+      dataType: 'json',
+      success: function (data) {
 //取得成功したら実行する処理
-      console.log("ファイルの取得に成功しました");
-      // console.log(data);
-      // console.log(data.photos.photo);
+        console.log("ファイルの取得に成功しました");
+        // console.log(data);
+        // console.log(data.photos.photo);
 
-      var photos = data.photos.photo;
+        var photos = data.photos.photo;
 
-      $.each(photos, function(i, val) {
+        $.each(photos, function (i, val) {
 
-        // 取得したJSONのデータからURLを作成
-        var imgUrl = "http://farm";
-        imgUrl += val.farm;
-        imgUrl += ".staticflickr.com/";
-        imgUrl += val.server;
-        imgUrl += "/";
-        imgUrl += val.id;
-        imgUrl += "_";
-        imgUrl += val.secret;
-        imgUrl += ".jpg";
+          // 取得したJSONのデータからURLを作成
+          var imgUrl = "http://farm";
+          imgUrl += val.farm;
+          imgUrl += ".staticflickr.com/";
+          imgUrl += val.server;
+          imgUrl += "/";
+          imgUrl += val.id;
+          imgUrl += "_";
+          imgUrl += val.secret;
+          imgUrl += ".jpg";
 
-        // HTMLに要素を追加
-        $(".images").append("<li><img src=" + imgUrl + "></li>");
+          // HTMLに要素を追加
+          $(".images").append("<li><img src=" + imgUrl + "></li>");
 
-        // console.log(imgUrl);
-      });
-    },
-    error: function () {
+          // console.log(imgUrl);
+        });
+      },
+      error: function () {
 //取得失敗時に実行する処理
-      console.log("何らかの理由で失敗しました");
-    }
+        console.log("何らかの理由で失敗しました");
+      }
+    });
+  }
+
+
+  /**
+   * 検索ボタンを押した時に呼ばれるメソッド
+   */
+  $(function () {
+    $(".js-searchSubmit").click(function () {
+
+      // 検索ワードを取得
+      var searchWord = $(".js-searchText").val();
+
+      searchFlickrImg(searchWord);
+
+      return false;
+    });
   });
+
 
 </script>
 </html>
