@@ -40,25 +40,16 @@
         // console.log(data);
         // console.log(data.photos.photo);
 
+        removeFlickrImg();
+
         var photos = data.photos.photo;
 
-        $.each(photos, function (i, val) {
+        $.each(photos, function (i, photo) {
 
-          // 取得したJSONのデータからURLを作成
-          var imgUrl = "http://farm";
-          imgUrl += val.farm;
-          imgUrl += ".staticflickr.com/";
-          imgUrl += val.server;
-          imgUrl += "/";
-          imgUrl += val.id;
-          imgUrl += "_";
-          imgUrl += val.secret;
-          imgUrl += ".jpg";
+          var imgUrl = generateFlickrImgUrl(photo);
 
-          // HTMLに要素を追加
-          $(".images").append("<li><img src=" + imgUrl + "></li>");
+          renderImgTag(imgUrl);
 
-          // console.log(imgUrl);
         });
       },
       error: function () {
@@ -66,6 +57,35 @@
         console.log("何らかの理由で失敗しました");
       }
     });
+  }
+
+  function generateFlickrImgUrl(photoData) {
+// 取得したJSONのデータからURLを作成
+    var imgUrl = "http://farm";
+    imgUrl += photoData.farm;
+    imgUrl += ".staticflickr.com/";
+    imgUrl += photoData.server;
+    imgUrl += "/";
+    imgUrl += photoData.id;
+    imgUrl += "_";
+    imgUrl += photoData.secret;
+    imgUrl += ".jpg";
+
+    return imgUrl;
+
+
+  }
+
+  function renderImgTag(imgUrl) {
+
+
+
+    // HTMLに要素を追加
+    $(".images").append("<li class='flickr_img'><img src=" + imgUrl + "></li>");
+  }
+
+  function removeFlickrImg() {
+    $(".flickr_img").remove();
   }
 
 
