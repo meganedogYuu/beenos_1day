@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Beenos 1day Internship</title>
+  <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header class="global-header">
+    <h1 class="logo">Beenos 1day Internship</h1>
+  </header>
+
+  <div class="contents">
+    <h2 class="logo">flickr</h2>
+
+    <fieldset class="form">
+      <legend>画像検索をしてみましょう</legend>
+      <input type="text" id="js-flickr-tag" class="textbox" value="" placeholder="検索したいタグ名を入力してください">
+      <button type="button" id="js-search" class="button">Search</button>
+    </fieldset>
+
+    <section class="results">
+      <h2 class="logo">Results</h2>
+      <div id="js-flickr-results"></div>
+    </section>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../assets/js/resource.js"></script>
+  <script src="../assets/js/flickr.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+html, body {
+  box-sizing: border-box;
+  background-color: #cddce4;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.logo {
+  font-family: 'Shadows Into Light', cursive;
+  color: #fff;
+  margin: 0;
+  padding: .5em 1em;;
+  box-sizing: border-box;
+}
+
+.global-header {
+  margin: 0;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  background-color: #ffbfb1;
+  box-sizing: border-box;
+}
+
+.contents {
+  margin: 0 auto;
+  display: block;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.results {
+  margin-top: 2em;
+  box-sizing: border-box;
+}
+
+.form {
+  border: 0;
+  background-color: #f6f4e8;
+  padding: 1em;
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.form > legend {
+  position: absolute;
+  top: 1em;
+  color: #735a41;
+  box-sizing: border-box;
+}
+
+.form > legend + .textbox {
+  margin-top: 3em;
+  box-sizing: border-box;
+}
+
+.textbox {
+  border: 0;
+  border-bottom: 1px solid #735a41;
+  width: 80%;
+  font-size: 1em;
+  background-color: transparent;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.button {
+  border-radius: 5px;
+  font-size: 1em;
+  border: 0;
+  padding: .5em;
+  background-color: #7dc7dd;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.results ul {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.results li{
+  display: inline-block;
+  background-color: #fff;
+  padding: 20px 15px;
+  width: 32%;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin: 0 9px 30px;
+  vertical-align: top;
+}
+
+.results li > img {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
