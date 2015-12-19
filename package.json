@@ -1,0 +1,23 @@
+{
+  "name": "oneday_intern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkray/beenos_1day.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkray/beenos_1day/issues"
+  },
+  "homepage": "https://github.com/tkray/beenos_1day#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "request": "^2.67.0"
+  }
+}

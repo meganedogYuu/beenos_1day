@@ -21,12 +21,7 @@
 
   function searchFlickrImg(searchWord) {
 
-    var apiKey = "e54217aa4aa3f448b98aa08d943cc773";
-
-    var searchUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="
-            + apiKey
-            + "&text=" + searchWord
-            + "&format=json&nojsoncallback=1";
+    var searchUrl = "/photos/search?text=" + searchWord;
 
     console.log(searchUrl);
 
